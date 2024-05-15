@@ -42,7 +42,7 @@ namespace Lab5
         static void Main(string[] args)
         {
             Tuple<int, int> NK = new Tuple<int, int>(999,5);
-            //-------------------------
+            //---------zad1.1------------
             var licznik1 = Task<BigInteger>.Factory.StartNew((object a)=>{
                 return licznik_F((Tuple<int, int>)a);
             },NK);
@@ -52,7 +52,7 @@ namespace Lab5
             licznik1.Wait();
             mianownik1.Wait();
             Console.WriteLine(licznik1.Result/mianownik1.Result);
-            //---------------
+            //---------zad1.2------------
             liczniki_D licznik_DD = licznik_F;
             mianownik_D mianownik_DD = mianownik_F;
             var licznik2 = licznik_DD.BeginInvoke(NK,null,null);
@@ -60,9 +60,9 @@ namespace Lab5
             var i = licznik_DD.EndInvoke(licznik2);
             var z = mianownik_DD.EndInvoke(mianownik2);
             Console.WriteLine(i/z);
-            //--------------
+            //---------zad1.3------------
             Task.WaitAll(newton(NK));
-            //--------------  
+            //---------zad4--------------
             string[] hostNames = { "www.microsoft.com", "www.apple.com",
                 "www.google.com", "www.ibm.com", "cisco.netacad.net",
                 "www.oracle.com", "www.nokia.com", "www.hp.com", "www.dell.com",

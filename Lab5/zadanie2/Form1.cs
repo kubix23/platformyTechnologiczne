@@ -18,13 +18,14 @@ namespace zadanie2
     {
         private int numberToCompute = 0;
         private FolderBrowserDialog folderBrowserDialog1;
-        public Form1()
+        public Form1()  
         {
             InitializeComponent();
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = true;
         }
 
+        //zad 2
         private BigInteger fibo(int n, BackgroundWorker worker, DoWorkEventArgs e)
         {
             BigInteger result = BigInteger.Parse("1");
@@ -80,7 +81,7 @@ namespace zadanie2
         {
             resultLabel.Text = "";
             startButton.Enabled = false;
-            numberToCompute = 99990;
+            numberToCompute = 90;
             backgroundWorker1.RunWorkerAsync(numberToCompute);
         }
 
@@ -90,6 +91,7 @@ namespace zadanie2
             progressBar1.Value = e.ProgressPercentage;
         }
 
+        //zad 3 compress
         private void button2_Click(object sender, EventArgs e)
         {
             var dlg = new FolderBrowserDialog() { Description = "Select directory to open" };
@@ -109,6 +111,8 @@ namespace zadanie2
             dlg.Dispose();
         }
 
+        //zad 3 decompress
+
         private void button3_Click(object sender, EventArgs e)
         {
             var dlg = new OpenFileDialog();
@@ -122,6 +126,11 @@ namespace zadanie2
             compressedFileStream.Dispose();
             outputFileStream.Dispose();
             dlg.Dispose();
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
